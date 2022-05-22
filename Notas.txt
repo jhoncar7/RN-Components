@@ -1,8 +1,10 @@
 
 yarn add @react-navigation/native
-yarn add react-native-screens react-native-safe-area-context
+yarn add react-native-screens 
+yarn add react-native-safe-area-context
 yarn add @react-navigation/stack
 yarn add react-native-gesture-handler
+yarn add react-native-vector-icons
 
 en el APP.js
 import 'react-native-gesture-handler';
