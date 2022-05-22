@@ -1,10 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export const HomeScreen = () => {
     return (
         <View>
-            <Text>Home Screen</Text>
+            <Icon name="ios-home" size={50} color="black" />
+            <Icon name="star-outline" size={50} color="black" />
         </View>
     )
 }
