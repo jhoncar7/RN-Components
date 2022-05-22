@@ -1,0 +1,23 @@
+
+yarn add @react-navigation/native
+yarn add react-native-screens react-native-safe-area-context
+yarn add @react-navigation/stack
+yarn add react-native-gesture-handler
+
+en el APP.js
+import 'react-native-gesture-handler';
+
+yarn add @react-native-masked-view/masked-view
+
+
+react-native-screens package requires one additional configuration step to properly work on Android devices. 
+Edit MainActivity.java file which is located in android/app/src/main/java/<your package name>/MainActivity.java.
+
+import android.os.Bundle;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(null);
+}
+
+npx pod-install ios
