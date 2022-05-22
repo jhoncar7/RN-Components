@@ -5,6 +5,7 @@ yarn add react-native-safe-area-context
 yarn add @react-navigation/stack
 yarn add react-native-gesture-handler
 yarn add react-native-vector-icons
+'MaterialIcons.ttf', 'EvilIcons.ttf','Ionicons.ttf' 
 
 en el APP.js
 import 'react-native-gesture-handler';
