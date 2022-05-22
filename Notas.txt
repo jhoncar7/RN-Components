@@ -1,10 +1,11 @@
 
-yarn add @react-navigation/native
+yarn add @react-navigation/native //https://reactnavigation.org/docs/getting-started/
 yarn add react-native-screens 
 yarn add react-native-safe-area-context
 yarn add @react-navigation/stack
 yarn add react-native-gesture-handler
-yarn add react-native-vector-icons
+yarn add react-native-vector-icons  //https://github.com/oblador/react-native-vector-icons
+yarn add -D @types/react-native-vector-icons
 'MaterialIcons.ttf', 'EvilIcons.ttf','Ionicons.ttf' 
 
 en el APP.js
