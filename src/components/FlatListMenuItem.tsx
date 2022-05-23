@@ -20,11 +20,11 @@ export const FlatListMenuItem = ({ menuItem }: Props) => {
             onPress={() => navigate(component)}
         >
             <View style={styles.container}>
-                <Icon name={icon} color='gray' size={23} />
+                <Icon name={icon} color='#5856D6' size={23} />
                 <Text style={styles.itemText}>{name}</Text>
                 <View style={{ flex: 1 }} />
                 {/* Como es row, se estira lo que pueda */}
-                <Icon name={'arrow-redo-outline'} color='gray' size={23} />
+                <Icon name={'arrow-redo-outline'} color='#5856D6' size={23} />
             </View>
         </TouchableOpacity>
     )
