@@ -7,6 +7,8 @@ yarn add react-native-gesture-handler
 yarn add react-native-vector-icons  //https://github.com/oblador/react-native-vector-icons
 yarn add -D @types/react-native-vector-icons
 yarn add react-native-prompt-android //funciona para androi e ios
+yarn add react-native-snap-carousel
+yarn add -D @types/react-native-snap-carousel
 'MaterialIcons.ttf', 'EvilIcons.ttf','Ionicons.ttf' 
 
 en el APP.js

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
 import { CustomSwitch } from '../components/CustomSwitch';
 import { HeaderTitle } from '../components/HeaderTitle';
+import { ThemeContext } from '../context/theme/ThemeContext';
 import { useForm } from '../hooks/useForm';
 import { styles } from '../theme/appTheme';
 
@@ -16,6 +17,9 @@ export const TextInputScreen = () => {
         }
     );
 
+    const { theme: { colors, dividerColor }, } = useContext(ThemeContext);
+    const { text } = colors;
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -27,20 +31,30 @@ export const TextInputScreen = () => {
                         <HeaderTitle title="TextInput" />
 
                         <TextInput
-                            style={{ ...stylesScreen.inputStyle }}
+                            style={{
+                                ...stylesScreen.inputStyle,
+                                borderColor: text,
+                                color: text
+                            }}
                             placeholder='Ingrese nombre'
                             autoCorrect={false}
                             autoCapitalize="words"
                             onChangeText={(value) => onChange(value, 'name')}
+                            placeholderTextColor={dividerColor}
                         />
                         <TextInput
-                            style={{ ...stylesScreen.inputStyle }}
+                            style={{
+                                ...stylesScreen.inputStyle,
+                                borderColor: text,
+                                color: text
+                            }}
                             placeholder='Ingrese email'
                             autoCorrect={false}
                             autoCapitalize="none"
                             keyboardType='email-address'
                             onChangeText={(value) => onChange(value, 'email')}
                             keyboardAppearance='dark' // solo en IOS el color de fondo del teclado
+                            placeholderTextColor={dividerColor}
                         />
                         <Text>Suscribirme</Text>
                         <View style={stylesScreen.switchRow}>
@@ -51,10 +65,15 @@ export const TextInputScreen = () => {
                         <HeaderTitle title={JSON.stringify(form, null, 5)} />
                         <HeaderTitle title={JSON.stringify(form, null, 5)} />
                         <TextInput
-                            style={{ ...stylesScreen.inputStyle }}
+                            style={{
+                                ...stylesScreen.inputStyle,
+                                borderColor: text,
+                                color: text
+                            }}
                             placeholder='Ingrese telefono'
                             onChangeText={(value) => onChange(value, 'phone')}
                             keyboardType="numeric"
+                            placeholderTextColor={dividerColor}
                         />
 
                         <HeaderTitle title={JSON.stringify(form, null, 5)} />
@@ -68,7 +87,6 @@ export const TextInputScreen = () => {
 const stylesScreen = StyleSheet.create({
     inputStyle: {
         borderWidth: 1,
-        borderColor: 'rgba(0,0,0,0.4)',
         height: 50,
         paddingHorizontal: 10,
         borderRadius: 10,

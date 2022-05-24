@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { MenuItem } from '../interfaces/appInterfaces'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useTheme } from '@react-navigation/native'
+import { ThemeContext } from '../context/theme/ThemeContext'
 
 interface Props {
     menuItem: MenuItem
@@ -11,8 +12,13 @@ interface Props {
 
 export const FlatListMenuItem = ({ menuItem }: Props) => {
 
+    const { theme:{colors} } = useContext(ThemeContext);
+    const {primary, text} = colors;
+
+
     const { navigate }: any = useNavigation()
     const { name, icon, component } = menuItem;
+    //const { colors } = useTheme();
 
     return (
         <TouchableOpacity
@@ -20,11 +26,14 @@ export const FlatListMenuItem = ({ menuItem }: Props) => {
             onPress={() => navigate(component)}
         >
             <View style={styles.container}>
-                <Icon name={icon} color='#5856D6' size={23} />
-                <Text style={styles.itemText}>{name}</Text>
+                <Icon name={icon} color={primary} size={23} />
+                <Text style={{
+                    ...styles.itemText,
+                    color:text
+                    }}>{name}</Text>
                 <View style={{ flex: 1 }} />
                 {/* Como es row, se estira lo que pueda */}
-                <Icon name={'arrow-redo-outline'} color='#5856D6' size={23} />
+                <Icon name={'arrow-redo-outline'} color={primary} size={23} />
             </View>
         </TouchableOpacity>
     )

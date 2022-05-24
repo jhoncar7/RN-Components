@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { CustomSwitch } from '../components/CustomSwitch';
 import { HeaderTitle } from '../components/HeaderTitle';
+import { ThemeContext } from '../context/theme/ThemeContext';
 
 export const SwitchScreen = () => {
 
@@ -12,6 +13,9 @@ export const SwitchScreen = () => {
     })
 
     const { isActive, isHungry, isHappy } = state;
+
+    const { theme: { colors } } = useContext(ThemeContext);
+    const { text } = colors;
 
     const onChange = (value: boolean, field: keyof typeof state) => {
         setState({
@@ -25,21 +29,21 @@ export const SwitchScreen = () => {
 
             <HeaderTitle title="Switches" />
             <View style={styles.switchRow}>
-                <Text style={styles.switchText}>{(isActive) ? 'Activo' : 'No Activo'}</Text>
+                <Text style={{...styles.switchText,color:text}}>{(isActive) ? 'Activo' : 'No Activo'}</Text>
                 <CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isActive')} />
             </View>
 
             <View style={styles.switchRow}>
-                <Text style={styles.switchText}>{(isHungry) ? 'Activo' : 'No Activo'}</Text>
+                <Text style={{...styles.switchText,color:text}}>{(isHungry) ? 'Activo' : 'No Activo'}</Text>
                 <CustomSwitch isOn={isHungry} onChange={(value) => onChange(value, 'isHungry')} />
             </View>
 
             <View style={styles.switchRow}>
-                <Text style={styles.switchText}>{(isHappy) ? 'Activo' : 'No Activo'}</Text>
+                <Text style={{...styles.switchText,color:text}}>{(isHappy) ? 'Activo' : 'No Activo'}</Text>
                 <CustomSwitch isOn={isHappy} onChange={(value) => onChange(value, 'isHappy')} />
             </View>
 
-            <Text style={styles.switchText}>
+            <Text style={{...styles.switchText,color:text}}>
                 {JSON.stringify(state, null, 5)}
             </Text>
 
